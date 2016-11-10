@@ -19813,15 +19813,46 @@ module.exports = require('./lib/React');
 
 var React = require('react');
 
+var AboutPage = React.createClass({displayName: "AboutPage",
+
+    render: function(){
+
+        return (
+            React.createElement("div", null, 
+                React.createElement("h1", null, "About"), 
+                React.createElement("p", null, 
+                    "This application uses the following tehcnologies:", 
+                    React.createElement("ul", null, 
+                        React.createElement("li", null, "React"), 
+                        React.createElement("li", null, "React Router"), 
+                        React.createElement("li", null, "Flux"), 
+                        React.createElement("li", null, "Node"), 
+                        React.createElement("li", null, "Gulp"), 
+                        React.createElement("li", null, "React"), 
+                        React.createElement("li", null, "Browserify"), 
+                        React.createElement("li", null, "Bootstrap")
+                    )
+                )
+            )
+        );
+    }
+})
+
+module.exports = AboutPage;
+
+},{"react":156}],158:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
 var Home = React.createClass({displayName: "Home",
 
-    render:function(){
-        return(
+    render: function(){
+        return (
         React.createElement("div", {className: "jumbotron"}, 
             React.createElement("h1", null, "Welcome to the React Flux Starter Kit"), 
             React.createElement("p", null, 
-                "React, Flux, and React Router combined with Browserify, Gulp, and Bootstrap and too Flux."
-                
+                "React, Flux, and React Router combined with Browserify, Gulp, and Bootstrap and too Flux."                
             )
         )
         );
@@ -19829,11 +19860,39 @@ var Home = React.createClass({displayName: "Home",
 });
 
 module.exports = Home;
-},{"react":156}],158:[function(require,module,exports){
+},{"react":156}],159:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
 var Home = require('./components/homePage');
+var About = require('./components/about/aboutPage');
 
-React.render(React.createElement(Home, null), document.querySelector('#app'));
-},{"./components/homePage":157,"react":156}]},{},[158]);
+var App = React.createClass({displayName: "App",
+
+    render: function(){
+        var Child;
+
+        switch(this.props.route)
+        {
+            case 'about': Child = About; break;
+            default: Child = Home;
+        }
+
+        return (
+            React.createElement("div", null, 
+                React.createElement(Child, null)
+            )            
+        );
+    }
+
+});
+
+function render(){
+    console.log(window.location.hash);
+    var route = window.location.hash.substr(1);
+    React.render(React.createElement(App, {route: route}), document.querySelector('#app'));
+}
+
+window.addEventListener('hashchange', render);
+render();
+},{"./components/about/aboutPage":157,"./components/homePage":158,"react":156}]},{},[159]);
