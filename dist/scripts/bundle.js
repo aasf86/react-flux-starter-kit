@@ -36947,11 +36947,11 @@ var AuthorList = React.createClass({displayName: "AuthorList",
         var createAuthorRow = function(author){
             return (
                 React.createElement("tr", {key: author.id}, 
-                    React.createElement("td", null, React.createElement("a", {href: '/#author/'+author.id}, author.id)), 
+                    React.createElement("td", null, React.createElement("a", {href: '/#author/' + author.id}, author.id)), 
                     React.createElement("td", null, author.firstName + ' ' + author.lastName)
                 )
             );
-        }
+        };
         return (
             React.createElement("div", null, 
                 React.createElement("table", {className: "table"}, 
