@@ -4,6 +4,8 @@ var React = require('react');
 
 var Linput = React.createClass({
 
+    
+
     render: function(){
         return (
             <div className={this.props.className + ' ' + (this.props.hasError ? 'has-error' : '')}>
