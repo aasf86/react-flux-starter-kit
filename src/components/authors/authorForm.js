@@ -1,40 +1,45 @@
 "use strict";
 
 var React = require('react');
+var Linput = require('../common/linput');
 
 var AuthorForm = React.createClass({
 
     render: function(){
 
+    var renderLinput = function(value, onChange, inputName, labelName, placeholder){        
         return (
-            <div>                
-                <form className="well">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <label htmlForm="firstName">First Name</label>
+            <div>
+                <label htmlForm={inputName}>{labelName}</label>
+                <input type="text" 
+                    name={inputName} 
+                    className="form-control" 
+                    placeholder={placeholder} 
+                    ref={inputName} 
+                    value={value}
+                    onChange={onChange} />
+            </div>
+        );
+    };        
+    /*
+<label htmlForm="firstName">First Name</label>
                             <input type="text" 
                                 name="firstName" 
                                 className="form-control" 
                                 placeholder="Input your name" 
                                 ref="firstName" 
                                 value={this.props.author.firstName}
-                                onChange={this.props.onChange} />
-                        </div>
-                        <div className="col-md-6">
-                            <label htmlForm="lastName">Last Name</label>
-                            <input type="text"
-                                name="lastName"
-                                className="form-control"
-                                placeholder="Input your last name"
-                                ref="lastName"
-                                value={this.props.author.lastName} 
-                                onChange={this.props.onChange}/>
-                        </div>                        
+                                onChange={this.props.onChange} />    
+    */
+        return (
+            <div>                
+                <form className="well">
+                    <div className="row">
+                        <Linput className="col-md-6" value={this.props.author.firstName} onChange={this.props.onChange} inputName="firstName" labelName="First Name" placeholder="Input your name" />
+                        <Linput className="col-md-6" value={this.props.author.lastName} onChange={this.props.onChange} inputName="lastName" labelName="Last Name" placeholder="Input your last name" />                                                
                     </div>
                     <br />
-                    <p>
-                        <button className="btn btn-primary"><i className="glyphicon glyphicon-floppy-disk"></i> Add</button>
-                    </p>
+                    <button className="btn btn-primary"><i className="glyphicon glyphicon-floppy-disk"></i> Add</button>
                 </form>
             </div>
         );
