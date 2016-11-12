@@ -7,30 +7,6 @@ var AuthorForm = React.createClass({
 
     render: function(){
 
-    var renderLinput = function(value, onChange, inputName, labelName, placeholder){        
-        return (
-            <div>
-                <label htmlForm={inputName}>{labelName}</label>
-                <input type="text" 
-                    name={inputName} 
-                    className="form-control" 
-                    placeholder={placeholder} 
-                    ref={inputName} 
-                    value={value}
-                    onChange={onChange} />
-            </div>
-        );
-    };        
-    /*
-<label htmlForm="firstName">First Name</label>
-                            <input type="text" 
-                                name="firstName" 
-                                className="form-control" 
-                                placeholder="Input your name" 
-                                ref="firstName" 
-                                value={this.props.author.firstName}
-                                onChange={this.props.onChange} />    
-    */
         return (
             <div>                
                 <form className="well">

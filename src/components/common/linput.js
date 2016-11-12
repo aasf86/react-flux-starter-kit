@@ -6,8 +6,8 @@ var Linput = React.createClass({
 
     render: function(){
         return (
-            <div className={this.props.className}>
-                <label htmlForm={this.props.inputName}>{this.props.labelName}</label>
+            <div className={this.props.className + ' ' + (this.props.hasError ? 'has-error' : '')}>
+                <label htmlForm={this.props.inputName} className="control-label">{this.props.labelName}</label>
                 <input type="text" 
                     name={this.props.inputName} 
                     className="form-control" 
@@ -15,6 +15,7 @@ var Linput = React.createClass({
                     ref={this.props.inputName} 
                     value={this.props.value}
                     onChange={this.props.onChange} />
+                    {this.props.hasError ? <span className="text-danger">{this.props.hasError}</span> : null}                     
             </div>
         );
     }
