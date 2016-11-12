@@ -3,6 +3,20 @@
 var React = require('react');
 
 var AboutPage = React.createClass({
+    statics: {
+        willTransitionTo: function(transition, params, query, callback){
+            if(!confirm('Are you sure to want to see this page, take care...')){
+                transition.abourt();
+            } else {
+                callback();
+            }
+        },
+        willTransitionFrom: function(transition, component){
+            if(!confirm('Are you sure to want to leave this page, not worry, see you later...')){
+                transition.abourt();
+            }
+        }        
+    },
 
     render: function(){
 
