@@ -12,15 +12,28 @@ var AuthorForm = React.createClass({
                     <div className="row">
                         <div className="col-md-6">
                             <label htmlForm="firstName">First Name</label>
-                            <input type="text" name="firstName" className="form-control" placeholder="Input your name" ref="firstName" value="" />
+                            <input type="text" 
+                                name="firstName" 
+                                className="form-control" 
+                                placeholder="Input your name" 
+                                ref="firstName" 
+                                value={this.props.author.firstName}
+                                onChange={this.props.onChange} />
                         </div>
                         <div className="col-md-6">
                             <label htmlForm="lastName">Last Name</label>
-                            <input type="text" name="lastName" className="form-control" placeholder="Input your last name" ref="lastName" value="" />
+                            <input type="text"
+                                name="lastName"
+                                className="form-control"
+                                placeholder="Input your last name"
+                                ref="lastName"
+                                value={this.props.author.lastName} 
+                                onChange={this.props.onChange}/>
                         </div>                        
                     </div>
+                    <br />
                     <p>
-                        <button className="btn btn-primary">Add</button>
+                        <button className="btn btn-primary"><i className="glyphicon glyphicon-floppy-disk"></i> Add</button>
                     </p>
                 </form>
             </div>
