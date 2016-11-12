@@ -39999,20 +39999,21 @@ module.exports = Authors;
 "use strict";
 
 var React = require('react');
-
+var Router = require('react-router');
+var Link = Router.Link;
 var Header = React.createClass({displayName: "Header",
 
     render: function(){
 
         return (
             React.createElement("nav", {className: "navbar navbar-default"}, 
-                React.createElement("a", {href: "/", className: "navbar-brand"}, 
+                React.createElement(Link, {to: "app", className: "navbar-brand"}, 
                     React.createElement("img", {src: "https://facebook.github.io/react/img/logo.svg", height: "27", width: "27"})
                 ), 
                 React.createElement("ul", {className: "nav navbar-nav"}, 
-                    React.createElement("li", null, React.createElement("a", {href: "/#"}, "Home")), 
-                    React.createElement("li", null, React.createElement("a", {href: "/#authors"}, "Authors")), 
-                    React.createElement("li", null, React.createElement("a", {href: "/#about"}, "About"))
+                    React.createElement("li", null, React.createElement(Link, {to: "app"}, "Home")), 
+                    React.createElement("li", null, React.createElement(Link, {to: "authors"}, "Authors")), 
+                    React.createElement("li", null, React.createElement(Link, {to: "about"}, "About"))
                 )
             )
         );
@@ -40021,7 +40022,7 @@ var Header = React.createClass({displayName: "Header",
 
 module.exports = Header; 
 
-},{"react":196}],204:[function(require,module,exports){
+},{"react":196,"react-router":27}],204:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
