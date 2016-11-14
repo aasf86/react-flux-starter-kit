@@ -4,6 +4,8 @@ var React = require('react');
 var AuthorForm = require('./authorForm');
 var AuthorApi = require('../../api/authorApi');
 var AuthorStore = require('../../stores/authorStores');
+var AuthorActions = require('../../actions/authorActions');
+
 var Router = require('react-router');
 var toastr = require('toastr');
 
@@ -61,11 +63,13 @@ var AuthorManager = React.createClass({
         if(this.validForm()){            
             
             if(!this.state.author.id) {                
-                AuthorApi.saveAuthor(this.state.author);
+                AuthorActions.createAuthor(this.state.author);
+                //AuthorApi.saveAuthor(this.state.author);
                 toastr.success('Author added with success!');
                 this.transitionTo('authors');
             } else {
-                AuthorApi.saveAuthor(this.state.author);
+                AuthorActions.createAuthor(this.state.author);
+                //AuthorApi.saveAuthor(this.state.author);
                 toastr.success('Author edited with success!');
             }
         } else {

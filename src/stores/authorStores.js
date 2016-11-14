@@ -34,4 +34,4 @@ Dispatcher.register(function(action){
     }
 });
 
-module.exports = AuthorStore;
+module.exports = AuthorStore; 
