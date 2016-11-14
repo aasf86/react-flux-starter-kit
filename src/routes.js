@@ -12,6 +12,7 @@ var routes = (
         <DefaultRoute handler={require('./components/homePage')} />
         <Route name="authors" handler={require('./components/authors/authorPage')} />
         <Route name="author" handler={require('./components/authors/authorManager')} />
+        <Route name="author/:id" handler={require('./components/authors/authorManager')} />
         <Route name="about" handler={require('./components/about/aboutPage')} />
         <NotFoundRoute handler={require('./components/common/pageNotFound')} />
         <Redirect from="asdf" to="app" />/* redireciona o estado de 'asdf'(não existe) para 'app'(existente)*/
