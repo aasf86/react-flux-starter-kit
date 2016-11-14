@@ -15,7 +15,7 @@ var AuthorForm = React.createClass({
                         <Linput className="col-md-6" value={this.props.author.lastName} onChange={this.props.onChange} inputName="lastName" labelName="Last Name" placeholder="Input your last name" />                                                
                     </div>
                     <br />
-                    <button className="btn btn-primary"><i className="glyphicon glyphicon-floppy-disk"></i> Add</button>
+                    <button type="submit" className="btn btn-primary" onClick={this.props.onSave}><i className="glyphicon glyphicon-floppy-disk"></i> Add</button>
                 </form>
             </div>
         );
