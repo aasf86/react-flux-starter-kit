@@ -3,10 +3,13 @@
 var React = require('react');
 var AuthorForm = require('./authorForm');
 var AuthorApi = require('../../api/authorApi');
+var AuthorStore = require('../../stores/authorStores');
 var Router = require('react-router');
 var toastr = require('toastr');
 
-var AuthorManager = React.createClass({
+console.log(AuthorStore);
+
+var AuthorManager = React.createClass({ 
     mixins: [
         Router.Navigation
     ],
@@ -20,7 +23,7 @@ var AuthorManager = React.createClass({
     componentWillMount: function(){
         var authorId = this.props.params.id;        
         if(authorId){
-            this.setState({author: AuthorApi.getAuthorById(authorId)});
+            this.setState({author: AuthorStore.getAuthorById(authorId)});
         }
     },
 
